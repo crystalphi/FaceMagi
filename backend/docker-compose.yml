@@ -1,0 +1,94 @@
+version: "2.0"
+
+services:
+
+  web:
+    build: .
+    ports:
+      - 5000:5000
+    env_file:
+      - .env.example
+    volumes:
+      # 设置容器内为宿主机时间
+      - /etc/localtime:/etc/localtime:ro 
+      - /etc/timezone:/etc/timezone:ro
+      # 使用打包时的文件目录内容
+      #- static_volume:/app/app/static
+      # 使用当前加载的文件目录内容
+      - ./app:/app
+      - ./misc/sv_gunicorn.conf:/etc/supervisor/supervisord.conf
+      - ../models_release:/app/app/engine_v1/models_release
+    depends_on:
+      - mysql
+    networks:
+      - bridge_network
+    #cpu_count: 2
+    #cpu_percent: 75
+    mem_limit: 16000m #6240m
+    memswap_limit: 16000m #8384m
+    #mem_reservation: 4192m
+    privileged: true
+    tty: true
+    # ！！注意：以下两行 command 二选一。下面这行为生产环境所用：
+    #command: ['/app/docker_entry.sh']
+    # 下面这行只在调试开发时使用，产品环境需注释掉
+    # 启动后进入 docker 系统终端，手工执行 run_engine.sh & run_web.sh 启动服务，程序异常时会输出堆栈信息
+    command: ['/bin/bash', '-c', 'while true ; do echo "running..." && sleep 30; done;']
+
+  nginx:
+    restart: always
+    image: nginx:1.15.12-alpine
+    ports:
+      - 8087:80
+      - 443:443 #目前为自生成证书，暂无法使用
+    volumes:
+      # 使用打包时的文件目录内容
+      #- static_volume:/app/app/static:ro
+      # 使用当前加载的文件目录内容
+      - ./app/app/static:/app/app/static:ro
+      - ./misc/nginx/conf.d:/etc/nginx/conf.d
+      - ./misc/nginx/log:/var/log/nginx
+      - ./misc/nginx/cert:/etc/nginx/cert
+      #- ./misc/nginx/www:/var/www
+      #- ./misc/nginx/html:/usr/share/nginx/html
+      #- ./misc/sv_nginx.conf:/etc/supervisor/supervisord.conf
+    depends_on:
+      - web
+    networks:
+      - bridge_network
+    #command: '/usr/bin/supervisord'
+
+  redis:
+    image: redis:4
+    ports:
+      - 6379:6379
+    volumes:
+      #- "${REDIS_DIR}/conf:/usr/local/etc/redis"
+      - "./misc/redis/data:/data"
+    networks:
+      - bridge_network
+    command:
+      redis-server
+  
+  mysql:
+    image: mysql:5.7.22
+    restart: always
+    #container_name: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ./misc/mysql/data:/var/lib/mysql
+      - ./misc/mysql/conf:/etc/mysql
+      - /etc/localtime:/etc/localtime
+    environment:
+      #- TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=Jdd107_MSL_DCKR
+    networks:
+      - bridge_network
+
+networks:
+  bridge_network:
+    driver: bridge
+
+volumes:
+  static_volume:
