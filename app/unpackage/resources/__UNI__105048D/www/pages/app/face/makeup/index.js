@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"card-cell { margin: ",[0,40]," 0; height: ",[0,150],"; }\n",],undefined,{path:"./pages/app/face/makeup/index.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/app/face/makeup/index.wxml') } }));

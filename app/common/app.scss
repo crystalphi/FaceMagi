@@ -1,0 +1,42 @@
+/*通用全局变量*/
+
+@import 'variables.scss';
+
+$app-icon-size:96upx;
+$app-icon-border-radius:24upx;
+$app-avator-size:96upx;
+$app-avator-border-radius:24upx;
+
+// 	page, view {
+// 		font-size: $uni-font-size-base;
+// 	}
+// 
+page {
+	min-height: 100%;
+}
+
+/*宫格导航图标*/
+.app-icon {
+  width: $app-icon-size;
+  height: $app-icon-size;
+  border-radius: $app-icon-border-radius;
+}
+
+/*人物头像*/
+.app-avator {
+  width: $app-avator-size;
+  height: $app-avator-size;
+  border-radius: $app-avator-border-radius;
+}
+
+/*新闻列表大图标*/
+.app-media-list-image {
+  width: 200upx;
+  height: 150upx;
+}
+
+/*证件照350x420*/
+.app-media-list-photo {
+  width: 175upx;
+  height: 210upx;
+}

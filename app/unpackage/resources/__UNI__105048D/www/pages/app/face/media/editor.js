@@ -1,0 +1,2 @@
+setCssToHead(["body { }\nwx-view { line-height: inherit }\n.",[1],"zzz-media-editor { position: fixed; bottom: ",[0,0],"; width: 100%; }\n.",[1],"set-bottom { position: fixed; bottom: ",[0,0],"; }\n.",[1],"my-text-size { font-size: ",[0,50],"; color: red; }\n",],undefined,{path:"./pages/app/face/media/editor.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/app/face/media/editor.wxml') } }));

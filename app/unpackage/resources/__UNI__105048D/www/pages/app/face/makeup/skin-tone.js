@@ -1,0 +1,2 @@
+setCssToHead(["body { }\nwx-view { line-height: inherit }\nwx-zzz-tab-swiper { }\n.",[1],"set-bottom { position: fixed; bottom: 0; width: 100%; margin: 0; padding: 0; }\n",],undefined,{path:"./pages/app/face/makeup/skin-tone.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/app/face/makeup/skin-tone.wxml') } }));

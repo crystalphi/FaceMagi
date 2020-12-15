@@ -1,0 +1,2 @@
+setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"example { padding: 0 ",[0,5]," ",[0,5],"; }\n",],undefined,{path:"./pages/tabbar/face/index.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tabbar/face/index.wxml') } }));

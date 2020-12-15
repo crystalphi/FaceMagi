@@ -1,0 +1,2 @@
+setCssToHead(["wx-view { line-height: 3em; }\nwx-input { border-bottom: #C0C0C0 solid 1px; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; margin-left: ",[0,30],"; }\n",],undefined,{path:"./pages/app/face/publish/index.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/app/face/publish/index.wxml') } }));

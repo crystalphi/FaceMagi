@@ -1,0 +1,21 @@
+{
+  "name": "uniapp-framework",
+  "version": "1.0.0",
+  "description": "移动客户端开发框架",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Crystalphi",
+  "license": "MIT",
+  "dependencies": {
+    "core-util-is": "^1.0.2",
+    "crypto": "^1.0.1",
+    "flyio": "^0.6.14",
+    "mockjs": "^1.0.1-beta3",
+    "ms": "^2.1.1",
+    "tracer": "^0.9.8",
+    "uuid": "^3.3.2",
+    "vue-i18n": "^8.11.2"
+  }
+}
