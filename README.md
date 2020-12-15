@@ -55,4 +55,4 @@ FaceMagi 为一款基于 AI 技术的人脸编辑手机应用，类似于 FaceAp
 联系方式：vedasky（微信号，请注明 facemagi转让）
 
 如果觉得项目对您有用，不妨打赏一下作者~
-![avatar](./images/wxds.jpg)
+![avatar](https://github.com/crystalphi/FaceMagi/blob/main/images/wxds.jpg)
